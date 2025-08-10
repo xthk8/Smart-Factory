@@ -48,6 +48,7 @@ sequence_length = 10
 X_train_seq, y_train_seq = create_sequences(X_train, y_train, sequence_length)
 X_test_seq, y_test_seq = create_sequences(X_test, y_test, sequence_length)
 
+'''
 # 기존 모델 (RNN)
 model = Sequential([
     SimpleRNN(50, activation='relu', input_shape=(X_train_seq.shape[1], X_train_seq.shape[2])),
@@ -56,6 +57,7 @@ model = Sequential([
 
 # Compile the model
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+'''
 
 # 개선 모델 (LSTM)
 model = Sequential([
@@ -118,4 +120,5 @@ f1 = f1_score(y_test_seq, y_pred)
 # Print summary
 print(f'Test Loss: {loss:.4f}, Test Accuracy: {accuracy:.4f}')
 print(f'Precision: {precision:.4f}, Recall: {recall:.4f}, F1 Score: {f1:.4f}')
+
 
